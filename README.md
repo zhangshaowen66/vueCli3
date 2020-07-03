@@ -33,5 +33,16 @@ $axios('/api/sample/login', data, 'post'，'test')
   
 ```
 
+### 打包配置
+
+```$xslt
+npm run build-test
+测试环境打包 在.env.test 配置相应的地址
+
+npm run build-pro
+正式环境打包 在.env.production 配置相应的地址
+
+```
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
