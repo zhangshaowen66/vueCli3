@@ -52,9 +52,6 @@ export default {
     },
     mounted () {
       console.log(process.env['VUE_APP_MODE'], '11233')
-        setTimeout(()=> {
-            this.DataList = {name: '李四'}
-        }, 3000)
     },
     components: {
       child
