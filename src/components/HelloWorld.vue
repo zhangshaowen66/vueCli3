@@ -1,5 +1,7 @@
 <template>
   <div class="hello">
+    {{DataList}}
+    <child :title.sync="test"></child>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
@@ -30,10 +32,32 @@
 </template>
 
 <script>
+  import child from './child.vue'
 export default {
   name: 'HelloWorld',
+
+    data () {
+      return{
+          title: '淘宝',
+          test: [
+              {
+                  a: [
+                      {
+                          b:1
+                      }
+                  ]
+              }
+          ]
+      }
+    },
     mounted () {
       console.log(process.env['VUE_APP_MODE'], '11233')
+        setTimeout(()=> {
+            this.DataList = {name: '李四'}
+        }, 3000)
+    },
+    components: {
+      child
     }
 }
 </script>
