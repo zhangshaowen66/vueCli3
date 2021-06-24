@@ -1,6 +1,6 @@
 import axios from 'axios'
 //定义fetch函数，config为配置
-export function fetch(config,base){
+export function fetch(config){
     //返回promise对象
     return new Promise((resolve,reject) =>{
         //创建axios实例，把基本的配置放进去
@@ -29,8 +29,8 @@ export function fetch(config,base){
 }
 
 // 封装调用的接口 getData
-export function $axios(url,data,type = 'post', host) {
-    let baseURL = host ? process.env[host] : process.env.VUE_APP_MODE
+export function $axios(url,data,type = 'post') {
+    let baseURL = '/api/'
     if (type === 'post' && !data) {
         data = {}
     } else if (type === 'get' && !data){

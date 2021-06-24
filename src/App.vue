@@ -7,7 +7,15 @@
 <script>
 
 export default {
-  name: 'App'
+  name: 'App',
+    mounted () {
+        this.$axios('cc-service-user/customer/count')
+            .then(
+                res => {
+                    console.log(res)
+                }
+            )
+    }
 }
 </script>
 

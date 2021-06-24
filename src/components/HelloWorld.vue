@@ -27,11 +27,16 @@
       <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
     </ul>
+    <div class="audio"  @click="play(url)">
+      <span>点击收听老师留言</span>
+    </div>
   </div>
 </template>
 
 <script>
   import child from './child.vue'
+  import BenzAMRRecorder from 'benz-amr-recorder'
+  var amr = new BenzAMRRecorder();
 export default {
   name: 'HelloWorld',
 
@@ -46,7 +51,8 @@ export default {
                       }
                   ]
               }
-          ]
+          ],
+          url: '../assets/bba.amr'
       }
     },
     mounted () {
@@ -54,6 +60,19 @@ export default {
     },
     components: {
       child
+    },
+    methods: {
+        play(url) {
+            amr.initWithUrl(url).then(function() {
+                // amr.isPlaying() 返回音频的播放状态 是否正在播放 返回boolean类型
+                console.log(amr.isPlaying())
+                if(amr.isPlaying()){
+                    amr.stop();
+                } else {
+                    amr.play();
+                }
+            });
+        }
     }
 }
 </script>
