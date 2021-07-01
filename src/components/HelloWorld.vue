@@ -36,10 +36,11 @@
 <script>
   import child from './child.vue'
   import BenzAMRRecorder from 'benz-amr-recorder'
+  import  {Model}  from '../config/mixins/more'
   var amr = new BenzAMRRecorder();
 export default {
   name: 'HelloWorld',
-
+    mixins: [Model],
     data () {
       return{
           title: '淘宝',
@@ -56,7 +57,8 @@ export default {
       }
     },
     mounted () {
-      console.log(process.env['VUE_APP_MODE'], '11233')
+      console.log(this.test, '11233')
+        this.testMixin()
     },
     components: {
       child
