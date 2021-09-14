@@ -59,11 +59,18 @@ export default {
     mounted () {
       console.log(this.test, '11233')
         this.testMixin()
+        this.tests()
     },
     components: {
       child
     },
     methods: {
+      tests () {
+          console.log(11)
+/*          setTimeout(()=>{
+              this.tests()
+          }, 1000)*/
+      },
         play(url) {
             amr.initWithUrl(url).then(function() {
                 // amr.isPlaying() 返回音频的播放状态 是否正在播放 返回boolean类型

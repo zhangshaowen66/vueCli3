@@ -9,12 +9,7 @@
 export default {
   name: 'App',
     mounted () {
-        this.$axios('cc-service-user/customer/count')
-            .then(
-                res => {
-                    console.log(res)
-                }
-            )
+
     }
 }
 </script>

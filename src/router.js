@@ -9,6 +9,16 @@ export default new Router({
             name: '',
             path: '/',
             component: () => import(/* webpackChunkName: "HelloWorld" */ './components/HelloWorld.vue'),
+        },
+        {
+            name: 'regular',
+            path: '/regular',
+            component: () => import(/* webpackChunkName: "HelloWorld" */ './components/regular.vue'),
+        },
+        {
+            name: 'swiper',
+            path: '/swiper',
+            component: () => import(/* webpackChunkName: "HelloWorld" */ './components/swiper.vue'),
         }
     ]
 })
