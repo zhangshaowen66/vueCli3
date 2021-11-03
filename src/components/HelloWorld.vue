@@ -30,6 +30,9 @@
     <div class="audio"  @click="play(url)">
       <span>点击收听老师留言</span>
     </div>
+    <downloadExcel :data="json_data" :fields="json_fields">
+      Download Data
+    </downloadExcel>
   </div>
 </template>
 
@@ -53,8 +56,42 @@ export default {
                   ]
               }
           ],
-          url: '../assets/bba.amr'
-      }
+          url: '../assets/bba.amr',
+          json_data: [
+              {
+                  name: "Tony Peña",
+                  city: "New York",
+                  country: "United States",
+                  birthdate: "1978-03-15",
+                  phone: {
+                      mobile: "1-541-754-3010",
+                      landline: "(541) 754-3010",
+                  },
+              },
+              {
+                  name: "Thessaloniki",
+                  city: "Athens",
+                  country: "Greece",
+                  birthdate: "1987-11-23",
+                  phone: {
+                      mobile: "+1 855 275 5071",
+                      landline: "(2741) 2621-244",
+                  },
+              },
+          ],
+          json_fields: {
+                  'Complete name': 'name',
+            'City': 'city',
+            'Telephone': 'phone.mobile',
+            'Telephone 2' : {
+                field: 'phone',
+                callback: (value) => {
+                    return `Landline Phone - ${value.landline}`
+                }
+            }
+        },
+
+    }
     },
     mounted () {
       console.log(this.test, '11233')
