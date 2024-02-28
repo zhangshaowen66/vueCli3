@@ -38,9 +38,9 @@
 
 <script>
   import child from './child.vue'
-  import BenzAMRRecorder from 'benz-amr-recorder'
+
   import  {Model}  from '../config/mixins/more'
-  var amr = new BenzAMRRecorder();
+
 export default {
   name: 'HelloWorld',
     mixins: [Model],
@@ -107,18 +107,7 @@ export default {
 /*          setTimeout(()=>{
               this.tests()
           }, 1000)*/
-      },
-        play(url) {
-            amr.initWithUrl(url).then(function() {
-                // amr.isPlaying() 返回音频的播放状态 是否正在播放 返回boolean类型
-                console.log(amr.isPlaying())
-                if(amr.isPlaying()){
-                    amr.stop();
-                } else {
-                    amr.play();
-                }
-            });
-        }
+      }
     }
 }
 </script>
